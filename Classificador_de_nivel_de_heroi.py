@@ -1,19 +1,27 @@
-def elo():
-    heroi = str(input())    
-    heroi_xp = int(input())
+def calcular_elo(heroi_xp):
     if heroi_xp < 1000:
-        print(f"Seu heroi será: {heroi} e seu elo é Ferro")
-    elif heroi_xp in range(1001, 2001):
-        print(f"Seu heroi será: {heroi} e seu elo é Prata")
-    elif heroi_xp in range(2001, 5001):
-        print(f"Seu heroi será: {heroi} e seu elo é Ouro")
-    elif heroi_xp in range(6001, 7001):
-        print(f"Seu heroi será: {heroi} e seu elo é Platina")
-    elif heroi_xp in range(7001, 8001):
-        print(f"Seu heroi será: {heroi} e seu elo é Ascendente")
-    elif heroi_xp in range(8001, 9001):
-        print(f"Seu heroi será: {heroi} e seu elo é é Imortal")
-    elif heroi_xp >= 10001:
-        print(f"Seu heroi será: {heroi} e seu elo é Radiante")
+        return "Ferro"
+    elif 1000 <= heroi_xp < 2000:
+        return "Prata"
+    elif 2000 <= heroi_xp < 5000:
+        return "Ouro"
+    elif 5000 <= heroi_xp < 7000:
+        return "Platina"
+    elif 7000 <= heroi_xp < 8000:
+        return "Ascendente"
+    elif 8000 <= heroi_xp < 10000:
+        return "Imortal"
+    else:
+        return "Radiante"
+
+def elo():
+    try:
+        heroi = str(input("Digite o nome do heroi: "))
+        heroi_xp = int(input("Digite a experiência do heroi: "))
+        
+        elo_do_heroi = calcular_elo(heroi_xp)
+        print(f"Seu heroi será: {heroi} e seu elo é {elo_do_heroi}")
+    except ValueError:
+        print("Entrada inválida. Certifique-se de que a experiência seja um número inteiro válido.")
 
 elo()
